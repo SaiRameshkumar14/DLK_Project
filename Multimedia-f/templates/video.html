@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %} Video {% endblock %}
+
+{% block body %}
+
+<nav class="navbar">
+    <ul>
+        <li><a href="./home">Home</a></li>
+        <li><a href= "./image" >Image</a></li>
+        <li><a href="./video" class="active">Video</a></li>
+        <li><a href="./webcam">Web Camera</a></li>
+        <li><a href="./analysis">Analysis</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <div class="left-panel">
+        <h2>Upload an video:</h2>
+        <form action="{{ url_for('upload_video') }}" method="post" enctype="multipart/form-data">
+            <input type="file" name="video" accept="video/*">
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+    <div class="right-panel" id="displayPanel">
+        <div class="placeholder">
+            {% if uploaded_video %}
+            <video controls autoplay>
+                <source src="{{ url_for('static', filename=uploaded_video) }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            {% else %}
+            <p>No video uploaded yet</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="right-panel" id="displayPanel">
+        <div class="placeholder">
+            <div class="image-container">
+                <h2>Detected Video</h2>
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}

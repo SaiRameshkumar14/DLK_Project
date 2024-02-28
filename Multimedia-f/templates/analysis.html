@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} Analysis {% endblock %}
+
+{% block body %}
+
+<nav class="navbar">
+    <ul>
+        <li><a href="./home">Home</a></li>
+        <li><a href= "./image" >Image</a></li>
+        <li><a href="./video" >Video</a></li>
+        <li><a href="./webcam" >Web Camera</a></li>
+        <li><a href="./analysis" class="active">Analysis</a></li>
+    </ul>
+</nav>
+
+<img src="{{ image }}" alt="Image"  class="samimg">
+    
+{% endblock %}
