@@ -1,7 +1,9 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #bfffeb;
+    background: linear-gradient(180deg,#bfffeb,white);
+    background-repeat: no-repeat;
+
   }
 
   .navbar {
@@ -11,32 +13,50 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    padding: 10px;
   }
 
-  .nav-ele{
-    float: right;
-  }
-
-  .navbar .logo {
+  #logo {
     float: left;
+    width: 6vw;
+    height: 6vw;
+    border-radius: 50%;
+    padding: 10px 10px;
   }
 
-  .navbar a {
-    float: left;
-    display: block;
-    color: rgb(29, 26, 26);
+  .navbar-menu{
+    display: flex;
+  }
+
+  .navbar #logo-txt{
+    -webkit-text-stroke-width: 1;
+    -webkit-text-stroke-color: #FFF;
+    font-family: 'Rubik Glitch';
+    font-size: 2vw;
+    font-style: normal;
+    line-height: normal;
+    background: linear-gradient(180deg, #1700c4 0%, rgba(180, 40, 255, 0.54) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .navbar-item{
+    display: flex;
+    color: #065d41;
     text-align: center;
-    padding: 14px 20px;
+    padding:20px 35px;
     text-decoration: none;
   }
 
   #active{
     text-decoration-line: underline;
+    text-transform: uppercase;
     font-weight: 700;
     line-height: normal;
   }
 
-  .nav-ele a:hover {
+  .navbar-item:hover {
     font-weight: 700;
     line-height: normal;
   }
@@ -52,20 +72,4 @@ body {
     height: 3vh;
     border-radius: 10px;
     background: #8EBBFF;
-  }
-
-
-  /* Responsive styles */
-  @media screen and (max-width: 600px) {
-    .navbar a {
-      float: none;
-      display: block;
-      text-align: left;
-    }
-
-    .navbar .logo {
-      float: none;
-      display: block;
-      text-align: center;
-    }
   }
