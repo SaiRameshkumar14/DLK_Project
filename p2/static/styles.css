@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #24293E;
+    background: #bfffeb;
   }
 
   .navbar {
@@ -24,7 +24,7 @@ body {
   .navbar a {
     float: left;
     display: block;
-    color: white;
+    color: rgb(29, 26, 26);
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;

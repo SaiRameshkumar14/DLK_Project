@@ -19,3 +19,16 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
     app.run(debug=True)
+
+# Folder prject name
+    # ├── __init__.py # setup your app
+    # ├── main.py   # the non-auth routes for your app
+    # ├── auth.py   # the auth routes for your app
+    # ├── models.py # your user model
+    # ├── db.sqlite # your database
+    # └── templates
+    #     ├── base.html     # contains common layout and links
+    #     ├── index.html    # show the home page
+    #     ├── login.html    # show the login form
+    #     ├── profile.html  # show the profile page
+    #     └── signup.html   # show the signup form 
