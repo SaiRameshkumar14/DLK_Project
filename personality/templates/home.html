@@ -1,23 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/styles.css">
-    <title>Document</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <div class="navbar">
-        <a href="#" class="logo">Your Logo</a>
-        <div class="nav-ele">
-            <a id="active" href="#">Home</a>
-            <a href="#">About</a>
-            <a><button id="log-btn" href="#">Login</button></a>
-        </div>
-    </div> 
-    <svg xmlns="http://www.w3.org/2000/svg" width="504" height="431" viewBox="0 0 504 431" fill="none">
-        <path d="M338.685 -148.711C466.308 -64.0088 612.912 184.208 383.802 160.437C230.544 169.638 337.678 464.572 79.3255 427.24C-179.027 389.908 -125.347 169.759 -129.009 -92.1712C-132.671 -354.101 211.063 -233.414 338.685 -148.711Z" fill="#2F3651"/>
-    </svg>
-</body>
-</html>
+{% block content %}
+<h1 class="title">
+    Flask Login Example
+</h1>
+<h2 class="subtitle">
+    Create a Login page using Flask :)
+</h2>
+{% endblock %}
+
+
+<!-- ---------------Folder prject name
+               ├── __init__.py # setup your app
+               ├── main.py   # the non-auth routes for your app
+               ├── auth.py   # the auth routes for your app
+               ├── models.py # your user model
+               ├── db.sqlite # your database
+               └── templates
+                    ├── base.html     # contains common layout and links
+                    ├── index.html    # show the home page
+                    ├── login.html    # show the login form
+                    ├── profile.html  # show the profile page
+                    └── signup.html   # show the signup form -->
