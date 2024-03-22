@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Speech Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>Real-time Speech Recognition</h1>
+            <img class="hero-img" src="../static/img/tamil.png" alt="image">
+            <button id="startBtn">Start</button>
+        </div>
+        <div class="body-txt">
+            <div id="output"></div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const startBtn = document.getElementById("startBtn");
+            const outputDiv = document.getElementById("output");
+
+            startBtn.addEventListener("click", function() {
+                const recognition = new webkitSpeechRecognition();
+                recognition.lang = 'ta-IN';
+
+                recognition.start();
+
+                recognition.onresult = function(event) {
+                    const transcript = event.results[0][0].transcript;
+                    outputDiv.innerHTML = "<p>Recognized Speech:</p><p>" + transcript + "</p>";
+
+                    fetch('/speech-to-text', {
+                        method: 'POST',
+                        body: JSON.stringify({ audio: transcript }),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data.text); 
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                };
+
+                recognition.onerror = function(event) {
+                    outputDiv.innerHTML = "<p>Error occurred: " + event.error + "</p>";
+                };
+            });
+        });
+    </script>
+</body>
+</html>
